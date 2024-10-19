@@ -6,6 +6,16 @@
   --fonte-principal: "Inter", sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,5 +103,5 @@ body {
 }
 
 .container__descricao {
-  padding: 2em;
+  padding: 4.5em;
 }
