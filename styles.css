@@ -39,28 +39,30 @@ body {
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh; /*no mínimo 100% da vh, podendo aumentar para não cortar o conteúdo*/
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr; /*ajusta-se ao espaço disponível na mesma proporção*/
 }
 
 .container__caixa {
-  margin: 0 10em;
+  margin: 0 10vw;/* baseado na largura da janela de visualização (10% da viewport).*/
 } 
 
 .container__titulo {
-  font-size: 1.75em;
+  font-size: 2vw; /* Valor ajustado para "vw", permitindo escala proporcional ao viewport width*/
   font-weight: 700;
 }
 
 .container__imagem {
   margin: 1em 0 2em 0;
+  max-width: 100%; /* Garante que a imagem não exceda o tamanho do container */
+  height: auto; /* Mantém a proporção da imagem */
 }
 
 .container__botao {
   background-color: var(--botao-azul);
   border-radius: 8px;
-  padding: 1em;
+  padding: 1em 2vw; /* Ajustamos o espaçamento para "vw", para uma adaptação melhor */
   color: var(--branco-principal);
   display: block;
   text-decoration: none;
@@ -87,11 +89,12 @@ body {
 }
 
 .secundario__imagem {
-  width: 80%;
+  width: 100%; /* Garante que a imagem use toda a largura disponível do container */
+  height: auto; /* Mantém a proporção da imagem */
 }
 
 .secundario {
-  margin: 0 10em;
+  margin: 0 10vw; /* Substituímos "em" por "vw" para melhor adaptação */
   align-items: center;
 }
 
@@ -112,7 +115,7 @@ body {
 }
 
 .container__descricao {
-  padding: 4.5em;
+  padding: 4.5em 2vw; /* Ajustamos o espaçamento para "vw", para uma adaptação melhor */
 }
 
 .dispositivos {
@@ -138,7 +141,7 @@ body {
 
 .rodape {
   text-align: center;
-  margin: 5em 16em;
+  margin: 5em 10vw; /* Ajustamos o espaçamento para "vw", para uma adaptação melhor */
 }
 
 .rodape__logo {
@@ -169,3 +172,68 @@ body {
   font-size: 0.87em;
 }
 
+/* Media Queries para garantir responsividade */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;/* Alterna para 1 coluna em telas menores */
+    text-align: center;
+  }
+
+  .secundario {
+    margin: 0;
+    padding: 2em;
+  }
+
+  .secundario__imagem {
+    width: 100%;
+  }
+
+  .container__descricao {
+    padding: 2em;
+  }
+
+  .dispositivos__lista {
+    flex-wrap: wrap;
+  }
+
+  .rodape {
+    margin: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .container__caixa {
+    margin: 0 2em;
+  }
+
+  .descricao__titulo {
+    font-size: 2em;
+  }
+
+  .rodape__lista {
+    flex-direction: column;
+  }
+
+  .rodape__lista__link a {
+    margin: 0.5em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container__titulo {
+    font-size: 1.25em;
+  }
+
+  .secundario__imagem {
+    width: 100%;
+  }
+
+  .container__botao {
+    padding: 0.75em;
+    font-size: 0.9em;
+  }
+
+  .rodape {
+    margin: 1em;
+  }
+}
