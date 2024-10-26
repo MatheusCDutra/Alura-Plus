@@ -43,3 +43,8 @@ A estrutura do projeto é composta pelos seguintes arquivos e diretórios:
    ```
    git clone https://github.com/seu-usuario/alura-plus.git
    ```
+
+2.  O projeto está disponível online. Acesse pelo link abaixo:
+   ```
+   https://matheuscdutra.github.io/Alura-Plus/
+   ```
